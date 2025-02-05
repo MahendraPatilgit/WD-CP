@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Billing System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>GST Billing System</h1>
+             <div class="billing-form">
+            <div class="customer-details">
+                <div class="form-group">
+                    <label for="customerName">Customer Name:</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Contact Number:</label>
+                    <input type="tel" id="customerPhone" pattern="[0-9]{10}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="product">Select Product:</label>
+                <select id="product">
+                    <option value="">--Select--</option>
+                    <option value="1">Laptop - ₹45,000</option>
+                    <option value="2">Mouse - ₹999</option>
+                    <option value="3">Keyboard - ₹1,499</option>
+                    <option value="4">Headphones - ₹2,499</option>
+                    <option value="5">Monitor - ₹15,999</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" min="1" value="1">
+            </div>
+            
+            <button onclick="addItem()">Add Item</button>
+        </div>
+            <div class="invoice">
+                <div class="invoice-header">
+                    <div class="logo-section">
+                        <h2>COMPANY NAME</h2>
+                        <p>123 Business Avenue, City</p>
+                        <p>Phone: (123) 456-7890</p>
+                        <p>GSTIN: 12ABCDE3456F7Z8</p>
+                    </div>
+                    <div class="invoice-details">
+                        <h1>TAX INVOICE</h1>
+                        <table class="invoice-info">
+                            <tr>
+                                <td>Invoice No:</td>
+                                <td id="invoice-number">INV-2025-009</td>
+                            </tr>
+                            <tr>
+                                <td>Date:</td>
+                                <td id="invoice-date"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+    
+                <div class="customer-section">
+                    <div class="billed-to">
+                        <h3>Billed To:</h3>
+                        <div id="customer-details">
+                            <p id="display-customer-name"></p>
+                            <p id="display-customer-phone"></p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="invoice-body">
+                    <table id="invoice-table">
+                        <thead>
+                            <tr>
+                                <th>Item Description</th>
+                                <th>Quantity</th>
+                                <th>Rate</th>
+                                <th>GST</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoice-body"></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td>Subtotal:</td>
+                                <td id="subtotal">₹0.00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td>GST Total:</td>
+                                <td id="gst-total">₹0.00</td>
+                            </tr>
+                            <tr class="grand-total">
+                                <td colspan="3"></td>
+                                <td>Grand Total:</td>
+                                <td id="grand-total">₹0.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+    
+                <div class="invoice-footer">
+                    <div class="terms">
+                        <h4>Terms & Conditions:</h4>
+                        <ol>
+                            <li>Payment due within 30 days</li>
+                            <li>Goods once sold cannot be returned</li>
+                        </ol>
+                    </div>
+                    <div class="signatures">
+                        <div class="signature-box">
+                            <div class="signature-line"></div>
+                            <p><h17>This is a digitally signed invoice.</h17></p>
+                            <p><h17>Does not require a physical signature.</h17></p>
+                            <div class="signature-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="invoice-actions">      
+                <button onclick="printInvoice()">Print Invoice</button>
+        </div>
+    </div>
+</div>
+    <script src="js/script.js"></script>
+</body>
+</html>
